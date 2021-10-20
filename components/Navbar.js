@@ -1,15 +1,40 @@
-export default function Navbar(){
-    return(
-        <div className="flex items-center justify-center p-5 space-x-24">
-            <span className="text-2xl">Documentation</span>
-            <ul className="flex space-x-10">
-                <li>About</li>
-                <li>CSS</li>
-                <li>Github</li>
-                <li>HTML</li>
-                <li>Javascript</li>
-                <li>React JS</li>
-            </ul>
-        </div>
+import { useState } from "react"
+
+export default function Navbar() {
+    const [isOpen, setIsOpen] = useState(false)
+    return (
+        <>
+            <div className="flex items-center justify-between p-5 mx-auto">
+                <div className="flex items-center space-x-5">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    my_doc
+                </div>
+                <ul className="hidden md:flex space-x-7">
+                    <li>About</li>
+                    <li>Github</li>
+                    <li>HTML</li>
+                    <li>Javascript</li>
+                    <li>React JS</li>
+                </ul>
+                <div className="visible md:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                        onClick={() => setIsOpen(!isOpen)}>
+                        {isOpen ? (<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />) :
+                            (<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />)}
+                    </svg>
+                </div>
+            </div>
+            <div className={`${isOpen ? ('visible') : ('hidden')}`}>
+                <ul className="flex flex-col justify-center items-center space-y-2">
+                    <li>About</li>
+                    <li>Github</li>
+                    <li>HTML</li>
+                    <li>Javascript</li>
+                    <li>React JS</li>
+                </ul>
+            </div>
+        </>
     )
 }
