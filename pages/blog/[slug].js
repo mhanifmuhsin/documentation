@@ -3,6 +3,7 @@ import path from 'path'
 import matter from 'gray-matter'
 import marked from 'marked'
 import Link from 'next/link'
+import Layout from '../../components/Layout'
 
 export default function PostPage({
     frontmatter: { title, date, cover_image },
@@ -11,14 +12,17 @@ export default function PostPage({
 }) {
     return (
         <>
-            <Link href='/'>
-                <a className='btn btn-back'>Go Back</a>
-            </Link>
-            <div className='card card-page'>
-                <h1 className='post-title'>{title}</h1>
-                <div className='post-date'>Posted on {date}</div>
+            <div className="pt-2 pb-3">
+                <Link href='/'>
+                    <a className='font-lato font-bold ml-1'>Go Back</a>
+                </Link>
+            </div>
+            <hr className=" border-b-2 border-yellow-300" />
+            <div className='py-3 font-light'>
                 {/* <img src={cover_image} alt='' /> */}
-                <div className='post-body'>
+            <div className='font-semibold'>Posted on {date}</div>
+            <h1 className='font-semibold'>{title}</h1>
+                <div className='text-base py-2'>
                     <div dangerouslySetInnerHTML={{ __html: marked(content) }}></div>
                 </div>
             </div>
@@ -56,4 +60,12 @@ export async function getStaticProps({ params: { slug } }) {
             content,
         },
     }
+}
+
+PostPage.getLayout = function getLayout(page) {
+    return (
+        <Layout>
+            {page}
+        </Layout>
+    )
 }
