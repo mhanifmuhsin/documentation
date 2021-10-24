@@ -4,14 +4,14 @@ export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false)
     return (
         <>
-            <div className="flex items-center justify-between p-5 mx-auto">
-                <div className="flex items-center space-x-5">
+            <div className="flex items-center justify-between p-5 mx-auto max-w-screen-md">
+                <div className="flex items-center space-x-5 font-lato text-base">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
-                    my_doc
+                    Documentation
                 </div>
-                <ul className="hidden md:flex space-x-7">
+                <ul className="hidden md:flex space-x-7 font-lato text-base">
                     <li>About</li>
                     <li>Github</li>
                     <li>HTML</li>
@@ -27,7 +27,7 @@ export default function Navbar() {
                 </div>
             </div>
             <div className={`${isOpen ? ('visible') : ('hidden')}`}>
-                <ul className="flex flex-col justify-center items-center space-y-2">
+                <ul className="flex flex-col justify-center items-center space-y-2 font-lato text-base">
                     <li>About</li>
                     <li>Github</li>
                     <li>HTML</li>
