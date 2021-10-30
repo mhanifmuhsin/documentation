@@ -16,10 +16,8 @@ export default function Navbar() {
                 </div>
                 <ul className="hidden md:flex space-x-7 font-lato text-base">
                     <Link href="/about">
-                        <a>About</a>
+                        <a>About me</a>
                     </Link>
-                    <li>Blog</li>
-                    <li>Portofolio</li>
                 </ul>
                 <div className="visible md:hidden">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"
