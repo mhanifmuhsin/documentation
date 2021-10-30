@@ -12,7 +12,7 @@ export default function PostPage({
 }) {
     return (
         <>
-            <div className="pt-2 pb-3">
+            <div className="pt-2 pb-3 max-w-screen-md">
                 <Link href='/'>
                     <a className='font-lato font-bold ml-1'>Go Back</a>
                 </Link>
